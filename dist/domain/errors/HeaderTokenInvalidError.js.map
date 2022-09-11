@@ -1,0 +1,1 @@
+{"version":3,"file":"HeaderTokenInvalidError.js","sourceRoot":"","sources":["../../../src/domain/errors/HeaderTokenInvalidError.ts"],"names":[],"mappings":";;AAAA,MAAqB,uBAAwB,SAAQ,KAAK;IACzD,YAAY,OAAe;QAC1B,KAAK,CAAC,OAAO,CAAC,CAAC;QAEf,IAAI,CAAC,IAAI,GAAG,yBAAyB,CAAC;IACvC,CAAC;CACD;AAND,0CAMC"}

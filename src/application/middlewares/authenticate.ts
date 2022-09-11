@@ -20,6 +20,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     const { name, uid, picture, firebase, email } = decodeValue as any;
     const userRepository: IUserRepository = Ioc.get("UserRepository");
     let user = await userRepository.findOneByUniid(decodeValue.uid);
+
     if (!user) {
       // create new user
       user = await userRepository.add(

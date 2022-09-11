@@ -42,7 +42,7 @@ export default class UserRepository
     let entity = User.create(
       {
         name: props["name"] && Name.create({ value: props["name"] }),
-        avatar: props["url"] && Url.create({ value: props["url"] }),
+        avatar: props["avatar"] && Url.create({ value: props["avatar"] }),
         uid: props["uid"],
         email: props["email"] && Email.create({ value: props["email"] }),
         provider: props["provider"],

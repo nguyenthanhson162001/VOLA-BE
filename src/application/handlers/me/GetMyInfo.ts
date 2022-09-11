@@ -28,6 +28,7 @@ export default class GetMyInfo extends RequestHandler<
     const input = await this.validate(request);
     const user = await this._userRepository.findOneById(input.id);
     if (!user) return null;
+
     return {
       name: user.name.value,
       email: user.email.value,

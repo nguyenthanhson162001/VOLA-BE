@@ -1,0 +1,1 @@
+{"version":3,"file":"ValueObject.js","sourceRoot":"","sources":["../../../src/domain/value-objects/ValueObject.ts"],"names":[],"mappings":";;AAAA,MAA8B,WAAW;IAIrC,YAAuB,KAAQ;QAE3B,IAAI,CAAC,MAAM,GAAG,KAAK,CAAC;IACxB,CAAC;IAED,IAAW,KAAK;QAEZ,OAAO,IAAI,CAAC,KAAK,CAAC;IACtB,CAAC;CACJ;AAbD,8BAaC"}

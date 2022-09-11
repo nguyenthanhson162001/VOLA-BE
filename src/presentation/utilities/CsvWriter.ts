@@ -1,65 +1,65 @@
-import fs from 'fs-extra';
-import { WriteStream } from 'fs-extra';
-import { finished } from 'stream';
-import { promisify } from 'util';
+// import fs from 'fs-extra';
+// import { WriteStream } from 'fs-extra';
+// import { finished } from 'stream';
+// import { promisify } from 'util';
 
-export interface ICsvExportConfig {
-	filePath: string;
-	fields: string[];
-}
+// export interface ICsvExportConfig {
+// 	filePath: string;
+// 	fields: string[];
+// }
 
-export default class CsvExporter {
-	private _configs: ICsvExportConfig;
-	private _writeStream!: WriteStream;
+// export default class CsvExporter {
+// 	private _configs: ICsvExportConfig;
+// 	private _writeStream!: WriteStream;
 
-	constructor(configs: ICsvExportConfig) {
-		this._configs = configs;
-	}
+// 	constructor(configs: ICsvExportConfig) {
+// 		this._configs = configs;
+// 	}
 
-	start() {
-		const { filePath, fields } = this._configs;
+// 	start() {
+// 		const { filePath, fields } = this._configs;
 
-		fs.ensureFileSync(filePath);
-		this._writeStream = fs.createWriteStream(filePath, { encoding: 'utf-8' });
+// 		fs.ensureFileSync(filePath);
+// 		this._writeStream = fs.createWriteStream(filePath, { encoding: 'utf-8' });
 
-		if (fields && fields.length > 0) {
-			const headerRow = fields.join(',') + '\n';
-			this._writeStream.write(headerRow);
-		}
-	}
+// 		if (fields && fields.length > 0) {
+// 			const headerRow = fields.join(',') + '\n';
+// 			this._writeStream.write(headerRow);
+// 		}
+// 	}
 
-	writeRow(data: object) {
-		const row = this.generateRow(data);
-		this._writeStream.write(row);
-	}
+// 	writeRow(data: object) {
+// 		const row = this.generateRow(data);
+// 		this._writeStream.write(row);
+// 	}
 
-	end() {
-		this._writeStream.close();
-		this._writeStream.end();
-	}
+// 	end() {
+// 		this._writeStream.close();
+// 		this._writeStream.end();
+// 	}
 
-	async finish() {
-		await promisify(finished)(this._writeStream);
-	}
+// 	async finish() {
+// 		await promisify(finished)(this._writeStream);
+// 	}
 
-	private generateRow(data: any) {
-		const fields = this._configs.fields;
+// 	private generateRow(data: any) {
+// 		const fields = this._configs.fields;
 
-		let row = '';
+// 		let row = '';
 
-		for (const field of fields) {
-			row += `"${this.format(data[field])}"` + ',';
-		}
+// 		for (const field of fields) {
+// 			row += `"${this.format(data[field])}"` + ',';
+// 		}
 
-		row += '\n';
+// 		row += '\n';
 
-		return row;
-	}
+// 		return row;
+// 	}
 
-	private format(value: any) {
-		if (value && value instanceof Date) return value.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
-		else if ((value && value instanceof Boolean) || typeof value === 'boolean') return value ? '1' : '0';
-		else if (value) return value;
-		else return '';
-	}
-}
+// 	private format(value: any) {
+// 		if (value && value instanceof Date) return value.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+// 		else if ((value && value instanceof Boolean) || typeof value === 'boolean') return value ? '1' : '0';
+// 		else if (value) return value;
+// 		else return '';
+// 	}
+// }

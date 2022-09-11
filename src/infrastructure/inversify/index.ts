@@ -10,7 +10,6 @@ const container = new Container({
 
 // Utilities
 container.bind<ErrorCollector>("ErrorCollector").to(ErrorCollector);
-
 container.bind<IUserRepository>("UserRepository").to(UserRepository);
 
 export default container;
